@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <!--<root-path path="" name="sdcard/photo" />-->
+        <!--<external-path name="photo" path=""/>-->
+         <root-path name="my_images" path=""/>
+
+    <!--Android/data/com.example.package.name/files/-->
+</resources>
