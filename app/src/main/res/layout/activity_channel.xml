@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/v_bg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y210"
+            android:background="@drawable/bg_rect_sendcode"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/layout_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></include>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x18"
+            android:layout_marginTop="@dimen/y91"
+            android:text="还款方式"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/x17"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x18"
+            android:layout_marginTop="@dimen/y125"
+            android:layout_marginRight="@dimen/x13"
+            android:text="打开微信>收付款>转账到银行卡备注姓名+手机号后四位，支付完成后请截图给下方在线客服，为您办理销账， 还款后有短信通知。"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/x16"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/y17"
+            android:text="对公账户"
+            android:textColor="#333333"
+            android:textSize="@dimen/x16"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_bg" />
+
+        <TextView
+            android:id="@+id/tv_bank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/y17"
+            android:gravity="left"
+            android:text="中国银行"
+            android:textColor="#999999"
+            android:textSize="@dimen/x16"
+            app:layout_constraintLeft_toRightOf="@+id/tv_title1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_bg" />
+
+        <View
+            android:id="@+id/v1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y1"
+            android:layout_marginTop="@dimen/y15"
+            android:background="#e5e5e5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bank"></View>
+
+
+        <TextView
+            android:id="@+id/tv_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/y17"
+            android:text="姓名"
+            android:textColor="#333333"
+            android:textSize="@dimen/x16"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v1" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/y17"
+            android:gravity="left"
+            android:text="吴彦祖"
+            android:textColor="#999999"
+            android:textSize="@dimen/x16"
+            app:layout_constraintLeft_toRightOf="@+id/tv_title1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v1" />
+
+        <View
+            android:id="@+id/v2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y1"
+            android:layout_marginTop="@dimen/y15"
+            android:background="#e5e5e5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"></View>
+
+
+        <TextView
+            android:id="@+id/tv_title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/y17"
+            android:text="卡号"
+            android:textColor="#333333"
+            android:textSize="@dimen/x16"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v2" />
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x12"
+            android:layout_marginTop="@dimen/y17"
+            android:gravity="left"
+            android:text="215451511231235121123125"
+            android:textColor="#999999"
+            android:textSize="@dimen/x16"
+            app:layout_constraintLeft_toRightOf="@+id/tv_title1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v2" />
+
+        <TextView
+            android:id="@+id/tv_copy"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/y25"
+            android:layout_marginRight="@dimen/x15"
+            android:background="@drawable/bg_login_btn"
+            android:gravity="center"
+            android:text="复制"
+            android:textColor="#fff"
+            android:textSize="@dimen/x16"
+            app:layout_constraintBottom_toTopOf="@+id/v3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v2" />
+
+        <View
+            android:id="@+id/v3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y1"
+            android:layout_marginTop="@dimen/y15"
+            android:background="#e5e5e5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_num"></View>
+
+
+        <com.qmuiteam.qmui.layout.QMUILinearLayout
+            android:id="@+id/qlyt_service"
+            android:layout_width="@dimen/x310"
+            android:layout_height="@dimen/y55"
+            android:layout_marginTop="@dimen/y190"
+            android:background="#fff"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:cardCornerRadius="@dimen/x28"
+            app:cardElevation="@dimen/y3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v3">
+
+            <View
+                android:layout_width="@dimen/x29"
+                android:layout_height="@dimen/y29"
+                android:background="@mipmap/icon_service2"></View>
+
+            <TextView
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在线客服"
+                android:textColor="#ff1d1e2c"
+                android:textSize="@dimen/x18"
+                />
+        </com.qmuiteam.qmui.layout.QMUILinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

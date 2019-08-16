@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_login">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x42"
+            android:layout_marginTop="@dimen/y150"
+            android:text="欢迎登录"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/x40"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x41"
+            android:layout_marginTop="@dimen/y202"
+            android:text="Welcome to login"
+            android:textColor="#ffb3b3b3"
+            android:textSize="@dimen/x20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!--<androidx.cardview.widget.CardView-->
+        <!--app:cardElevation="@dimen/y3"-->
+        <!--android:layout_width="@dimen/x310"-->
+        <!--android:layout_height="@dimen/y55"-->
+        <!--android:layout_marginLeft="@dimen/x33"-->
+        <!--android:layout_marginTop="@dimen/y288"-->
+        <!--android:layout_marginRight="@dimen/x33"-->
+        <!--android:background="#fff"-->
+        <!--android:orientation="vertical"-->
+        <!--app:cardCornerRadius="@dimen/x28"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"></androidx.cardview.widget.CardView>-->
+
+        <com.qmuiteam.qmui.layout.QMUILinearLayout
+            android:id="@+id/qlyt_mobile"
+            android:layout_width="@dimen/x310"
+            android:layout_height="@dimen/y55"
+            android:layout_marginLeft="@dimen/x33"
+            android:layout_marginTop="@dimen/y288"
+            android:layout_marginRight="@dimen/x33"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:cardCornerRadius="@dimen/x28"
+            app:cardElevation="@dimen/y3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/x17"
+                android:layout_height="@dimen/y25"
+                android:layout_marginLeft="@dimen/x25"
+                android:background="@mipmap/icon_mobile" />
+
+            <EditText
+                android:id="@+id/et_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginRight="@dimen/x25"
+                android:background="@null"
+                android:hint="请输入手机号"
+                android:inputType="number"
+                android:textColorHint="#B3B3B3"
+                android:textSize="@dimen/x16" />
+
+
+        </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+        <com.qmuiteam.qmui.layout.QMUILinearLayout
+            android:id="@+id/qlyt_vcode"
+            android:layout_width="@dimen/x183"
+            android:layout_height="@dimen/y55"
+            android:layout_marginLeft="@dimen/x33"
+            android:layout_marginTop="@dimen/y25"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:cardCornerRadius="@dimen/x28"
+            app:cardElevation="@dimen/y3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qlyt_mobile">
+
+            <ImageView
+                android:layout_width="@dimen/x19"
+                android:layout_height="@dimen/y22"
+                android:layout_marginLeft="@dimen/x25"
+                android:background="@mipmap/icon_vcode" />
+
+            <EditText
+                android:id="@+id/et_vcode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginRight="@dimen/x25"
+                android:background="@null"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                android:textColorHint="#B3B3B3"
+                android:textSize="@dimen/x16" />
+
+
+        </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+
+        <com.qmuiteam.qmui.layout.QMUILinearLayout
+            android:id="@+id/qlyt_sendcode"
+            android:layout_width="@dimen/x115"
+            android:layout_height="@dimen/y55"
+            android:layout_marginTop="@dimen/y25"
+            android:layout_marginRight="@dimen/x33"
+            android:background="@drawable/bg_rect_sendcode"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:cardCornerRadius="@dimen/x28"
+            app:cardElevation="@dimen/y3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qlyt_mobile">
+
+            <TextView
+                android:id="@+id/tv_sendcode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="获取验证码"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x16"
+                app:layout_constraintBottom_toBottomOf="@+id/qlyt_sendcode"
+                app:layout_constraintLeft_toLeftOf="@+id/qlyt_sendcode"
+                app:layout_constraintRight_toRightOf="@+id/qlyt_sendcode"
+                app:layout_constraintTop_toTopOf="@+id/qlyt_sendcode" />
+        </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+
+
+
+        <com.qmuiteam.qmui.layout.QMUILinearLayout
+            android:id="@+id/qlyt_next"
+            android:layout_width="@dimen/x83"
+            android:layout_height="@dimen/y35"
+            android:layout_marginTop="@dimen/y70"
+            android:layout_marginRight="@dimen/x33"
+            android:background="@drawable/bg_rect_sendcode"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:cardCornerRadius="@dimen/x28"
+            app:cardElevation="@dimen/y3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qlyt_sendcode">
+
+            <View
+                android:layout_width="@dimen/x29"
+                android:layout_height="@dimen/y24"
+                android:background="@mipmap/icon_arrow_right"></View>
+
+
+        </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/x16"
+            android:text="登录"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/x21"
+            app:layout_constraintBottom_toBottomOf="@+id/qlyt_next"
+            app:layout_constraintRight_toLeftOf="@+id/qlyt_next"
+            app:layout_constraintTop_toTopOf="@+id/qlyt_next" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
