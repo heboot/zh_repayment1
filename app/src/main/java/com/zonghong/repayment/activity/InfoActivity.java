@@ -35,6 +35,7 @@ public class InfoActivity extends BaseActivity<ActivityInfoBinding> {
                 if(position == 2){
                     logoutSheet.dismiss();
                 }else{
+                    logoutSheet.dismiss();
                     PreferencesUtils.putString(MAPP.mapp, MKey.PHONE,"");
                     RxBus.getInstance().post("logout");
                     Intent intent = new Intent(InfoActivity.this,LoginActivity.class);

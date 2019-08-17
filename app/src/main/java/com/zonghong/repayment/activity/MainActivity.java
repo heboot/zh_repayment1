@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.http.HttpClient;
 import com.waw.hr.mutils.DialogUtils;
@@ -52,10 +53,16 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     public void initListener() {
         binding.qlytOrder.setOnClickListener((v)->{
+            if(MAPP.mapp.getDataMap() == null){
+                Toast.makeText(MainActivity.this,"获取数据失败，请稍后重试",Toast.LENGTH_SHORT).show();
+                getIndexData();
+                return;
+            }
             Intent intent = new Intent(this,OrderActivity.class);
             startActivity(intent);
         });
         binding.qlytInfo.setOnClickListener((v)->{
+
             Intent intent = new Intent(this,InfoActivity.class);
             startActivity(intent);
         });

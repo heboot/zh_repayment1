@@ -1,6 +1,7 @@
 package com.zonghong.repayment.activity;
 
 import android.content.Intent;
+import android.widget.Toast;
 
 import com.zonghong.repayment.MAPP;
 import com.zonghong.repayment.R;
@@ -26,6 +27,7 @@ public class OrderActivity extends BaseActivity<ActivityOrderBinding> {
     @Override
     public void initListener() {
         binding.tvLogin.setOnClickListener((v)->{
+
             Intent intent = new Intent(this,ChannelActivity.class);
             startActivity(intent);
         });
