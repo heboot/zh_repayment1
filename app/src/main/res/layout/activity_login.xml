@@ -55,8 +55,6 @@
             android:background="#fff"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:cardCornerRadius="@dimen/x28"
-            app:cardElevation="@dimen/y3"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -91,8 +89,6 @@
             android:background="#fff"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:cardCornerRadius="@dimen/x28"
-            app:cardElevation="@dimen/y3"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/qlyt_mobile">
 
@@ -127,8 +123,6 @@
             android:background="@drawable/bg_rect_sendcode"
             android:gravity="center"
             android:orientation="horizontal"
-            app:cardCornerRadius="@dimen/x28"
-            app:cardElevation="@dimen/y3"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/qlyt_mobile">
 
@@ -158,8 +152,6 @@
             android:background="@drawable/bg_rect_sendcode"
             android:gravity="center"
             android:orientation="horizontal"
-            app:cardCornerRadius="@dimen/x28"
-            app:cardElevation="@dimen/y3"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/qlyt_sendcode">
 

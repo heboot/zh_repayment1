@@ -1,38 +1,33 @@
 package com.zonghong.repayment.activity;
 
+import android.Manifest;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 
-import com.alibaba.fastjson.JSON;
-import com.qmuiteam.qmui.widget.dialog.QMUIBottomSheet;
-import com.waw.hr.mutils.DialogUtils;
-import com.waw.hr.mutils.LogUtil;
-import com.waw.hr.mutils.MKey;
-import com.waw.hr.mutils.MValue;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 import com.zonghong.repayment.R;
 import com.zonghong.repayment.base.BaseActivity;
 import com.zonghong.repayment.databinding.ActivityHhBinding;
-import com.zonghong.repayment.utils.ImaegUtils;
-import com.zonghong.repayment.utils.MChromeClient;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.List;
 
-public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
+import pub.devrel.easypermissions.EasyPermissions;
+import pub.devrel.easypermissions.PermissionRequest;
+
+public class HTMLActivity extends BaseActivity<ActivityHhBinding> implements EasyPermissions.PermissionCallbacks  {
 
     public ValueCallback<Uri[]> mUploadMessageForAndroid5;
     public ValueCallback<Uri> mUploadMessage;
@@ -41,13 +36,13 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
 
     private Uri imageUri;
 
-    private QMUIBottomSheet chooseSheet;
-
-//    private ValueCallback<Uri[]> currentUploadMsg;
-
     public static final int TAKE_PHOTO = 999;//拍照
 
-    private boolean hasResult = false;
+    private final int REQUEST_PERMISSION_CODE = 996;
+
+    private QMUIDialog permissionDialog;
+
+    private String [] permissons = {Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     @Override
     protected int getLayoutId() {
@@ -96,15 +91,18 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
 
                 mUploadMessageForAndroid5 = uploadMsg;
 
+                if(!checkPermission()){
+                    mUploadMessageForAndroid5.onReceiveValue(null);
+                    mUploadMessageForAndroid5 = null;
+                    permissionDialog.show();
+                    return  true;
+                }
+
                 if (fileChooserParams.isCaptureEnabled()) {
                     openCamera();
                 } else {
                     onenFileChooseImpleForAndroid();
                 }
-
-
-//                chooseSheet.show();
-//                onenFileChooseImpleForAndroid();
                 return true;
             }
 
@@ -117,39 +115,42 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
 
     @Override
     public void initData() {
-
-        chooseSheet = DialogUtils.getAvatarBottomSheet(this, new QMUIBottomSheet.BottomListSheetBuilder.OnSheetItemClickListener() {
-            @Override
-            public void onClick(QMUIBottomSheet dialog, View itemView, int position, String tag) {
-                if (position == 2) {
-                    chooseSheet.dismiss();
-                } else if (position == 0) {
-                    chooseSheet.dismiss();
-                    //拍照
-                    openCamera();
-                } else if (position == 1) {
-                    onenFileChooseImpleForAndroid();
-                    chooseSheet.dismiss();
-                }
-            }
-        });
-        chooseSheet.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-                LogUtil.e(TAG, "dimiss");
-            }
-        });
-        chooseSheet.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-            }
-        });
+        permissionDialog  = new QMUIDialog.MessageDialogBuilder(this)
+                .setTitle("提醒")
+                .setMessage("需要打开摄像头/相册权限，您才能正常与客服发送图片")
+                .addAction("知道了", new QMUIDialogAction.ActionListener() {
+                    @Override
+                    public void onClick(QMUIDialog dialog, int index) {
+                        permissionDialog.dismiss();
+                    }
+                })
+                .addAction("去打开", new QMUIDialogAction.ActionListener() {
+                    @Override
+                    public void onClick(QMUIDialog dialog, int index) {
+                        permissionDialog.dismiss();
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                            EasyPermissions.requestPermissions(
+                                    new PermissionRequest.Builder(HTMLActivity.this, REQUEST_PERMISSION_CODE, permissons)
+                                            .setRationale("临时登录需要获取您的相机/相册权限")
+                                            .setPositiveButtonText("打开")
+                                            .setNegativeButtonText("取消")
+                                            .build());
+                        }
+                    }
+                })
+                .create();
     }
 
     @Override
     public void initListener() {
 
     }
+
+    private boolean checkPermission(){
+            return EasyPermissions.hasPermissions(this,permissons);
+    }
+
+
 
     /**
      * android 5.0 以下开启图片选择（原生）
@@ -170,7 +171,6 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
      * 可以自己改图片选择框架。
      */
     private void onenFileChooseImpleForAndroid() {
-        hasResult = true;
         Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
         contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
         contentSelectionIntent.setType("image/*");
@@ -189,7 +189,6 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
      * @param activity
      */
     public void openCamera() {
-        hasResult = true;
 
         File path = new File(getExternalCacheDir(), "images");
         if (!path.exists()) {
@@ -242,7 +241,6 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
                 break;
 
             case FILE_CHOOSER_RESULT_CODE_FOR_ANDROID_5:  //android 5.0(含) 以上 选择图片回调
-                hasResult = true;
                 if (null == mUploadMessageForAndroid5)
                     return;
                 if (result != null) {
@@ -253,7 +251,6 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
                 mUploadMessageForAndroid5 = null;
                 break;
             case TAKE_PHOTO:
-                hasResult = true;
                 if (null == mUploadMessageForAndroid5)
                     return;
                 if (imageUri != null) {
@@ -277,5 +274,26 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> {
         }
 
 
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        permissionDialog.show();
     }
 }
