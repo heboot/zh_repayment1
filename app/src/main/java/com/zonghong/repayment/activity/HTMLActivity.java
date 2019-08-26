@@ -105,12 +105,12 @@ public class HTMLActivity extends BaseActivity<ActivityHhBinding> implements Eas
                 }
                 return true;
             }
-
-
         });
 
 
-        binding.wv.loadUrl("https://dwz.cn/IkBojfH8");
+//        binding.wv.loadUrl("https://dwz.cn/IkBojfH8");  version1
+        binding.wv.loadUrl("http://p.qiao.baidu.com/cps/chat?siteId=13759626&userId=28628748&cp=http%3A%2F%2Fzkjnwcgrmwauno.0594.bftii.com&cr=http%3A%2F%2Fzkjnwcgrmwauno.0594.bftii.com&cw=http%3A%2F%2Fzkjnwcgrmwauno.0594.bftii.com");
+
     }
 
     @Override

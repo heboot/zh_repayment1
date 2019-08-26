@@ -1,16 +1,14 @@
 package com.zonghong.repayment.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.http.HttpClient;
+import com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout;
 import com.waw.hr.mutils.DialogUtils;
 import com.waw.hr.mutils.MKey;
 import com.waw.hr.mutils.PreferencesUtils;
-import com.waw.hr.mutils.StringUtils;
 import com.waw.hr.mutils.base.BaseBean;
 import com.zonghong.repayment.MAPP;
 import com.zonghong.repayment.R;
@@ -52,6 +50,22 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     public void initListener() {
+        binding.mrv.setOnPullListener(new QMUIPullRefreshLayout.OnPullListener() {
+            @Override
+            public void onMoveTarget(int offset) {
+
+            }
+
+            @Override
+            public void onMoveRefreshView(int offset) {
+
+            }
+
+            @Override
+            public void onRefresh() {
+                getIndexData();
+            }
+        });
         binding.qlytOrder.setOnClickListener((v)->{
             if(MAPP.mapp.getDataMap() == null){
                 Toast.makeText(MainActivity.this,"获取数据失败，请稍后重试",Toast.LENGTH_SHORT).show();
@@ -78,11 +92,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         HttpClient.Builder.getServer().index().observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<Map>() {
             @Override
             public void onSuccess(BaseBean<Map> baseBean) {
+                binding.mrv.finishRefresh();
                 MAPP.mapp.setDataMap(baseBean.getData());
             }
 
             @Override
             public void onError(BaseBean<Map> baseBean) {
+                binding.mrv.finishRefresh();
                 tipDialog = DialogUtils.getFailDialog(MainActivity.this, baseBean.getMsg(), true);
                 tipDialog.show();
             }

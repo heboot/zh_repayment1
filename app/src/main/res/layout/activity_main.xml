@@ -2,118 +2,125 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.zonghong.repayment.view.MRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mrv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/bg_login">
+       >
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/bg_login">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x33"
-            android:layout_marginTop="@dimen/y68"
-            android:text="欢迎您！"
-            android:textColor="#1D1E2C"
-            android:textSize="@dimen/x24"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_mobile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x10"
-            android:layout_marginTop="@dimen/y45"
-            android:textColor="#000000"
-            android:textSize="@dimen/x17"
-            app:layout_constraintLeft_toLeftOf="@+id/tv_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
-
-        <com.qmuiteam.qmui.layout.QMUILinearLayout
-            android:id="@+id/qlyt_info"
-            android:layout_width="@dimen/x145"
-            android:layout_height="@dimen/y200"
-            android:layout_marginLeft="@dimen/x31"
-            android:layout_marginTop="@dimen/y68"
-            android:background="#fff"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_mobile">
-
-            <ImageView
-                android:layout_width="@dimen/x70"
-                android:layout_height="@dimen/y60"
-                android:layout_marginTop="@dimen/y57"
-                android:background="@mipmap/icon_info" />
 
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/y24"
-                android:text="用户信息"
-                android:textColor="#ff1d1e2c"
-                android:textSize="@dimen/x18" />
-        </com.qmuiteam.qmui.layout.QMUILinearLayout>
-
-        <com.qmuiteam.qmui.layout.QMUILinearLayout
-            android:id="@+id/qlyt_order"
-            android:layout_width="@dimen/x145"
-            android:layout_height="@dimen/y200"
-            android:layout_marginTop="@dimen/y68"
-            android:layout_marginRight="@dimen/x31"
-            android:background="#fff"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_mobile">
-
-            <ImageView
-                android:layout_width="@dimen/x70"
-                android:layout_height="@dimen/y60"
-                android:layout_marginTop="@dimen/y57"
-                android:background="@mipmap/icon_order" />
+                android:layout_marginLeft="@dimen/x33"
+                android:layout_marginTop="@dimen/y68"
+                android:text="欢迎您！"
+                android:textColor="#1D1E2C"
+                android:textSize="@dimen/x24"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tv_mobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/y24"
-                android:text="我的订单"
-                android:textColor="#ff1d1e2c"
-                android:textSize="@dimen/x18" />
-        </com.qmuiteam.qmui.layout.QMUILinearLayout>
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginTop="@dimen/y45"
+                android:textColor="#000000"
+                android:textSize="@dimen/x17"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-        <com.qmuiteam.qmui.layout.QMUILinearLayout
-            android:id="@+id/qlyt_service"
-            android:layout_width="@dimen/y313"
-            android:layout_height="@dimen/y140"
-            android:layout_marginLeft="@dimen/x31"
-            android:layout_marginTop="@dimen/y45"
-            android:layout_marginRight="@dimen/x31"
-            android:background="#fff"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/qlyt_order">
+            <com.qmuiteam.qmui.layout.QMUILinearLayout
+                android:id="@+id/qlyt_info"
+                android:layout_width="@dimen/x145"
+                android:layout_height="@dimen/y200"
+                android:layout_marginLeft="@dimen/x31"
+                android:layout_marginTop="@dimen/y68"
+                android:background="#fff"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_mobile">
 
-            <ImageView
-                android:layout_width="@dimen/x65"
-                android:layout_height="@dimen/y67"
-                android:layout_marginTop="@dimen/y18"
-                android:background="@mipmap/icon_kefu" />
+                <ImageView
+                    android:layout_width="@dimen/x70"
+                    android:layout_height="@dimen/y60"
+                    android:layout_marginTop="@dimen/y57"
+                    android:background="@mipmap/icon_info" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/y22"
-                android:text="在线客服"
-                android:textColor="#ff1d1e2c"
-                android:textSize="@dimen/x18" />
-        </com.qmuiteam.qmui.layout.QMUILinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y24"
+                    android:text="用户信息"
+                    android:textColor="#ff1d1e2c"
+                    android:textSize="@dimen/x18" />
+            </com.qmuiteam.qmui.layout.QMUILinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.qmuiteam.qmui.layout.QMUILinearLayout
+                android:id="@+id/qlyt_order"
+                android:layout_width="@dimen/x145"
+                android:layout_height="@dimen/y200"
+                android:layout_marginTop="@dimen/y68"
+                android:layout_marginRight="@dimen/x31"
+                android:background="#fff"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_mobile">
+
+                <ImageView
+                    android:layout_width="@dimen/x70"
+                    android:layout_height="@dimen/y60"
+                    android:layout_marginTop="@dimen/y57"
+                    android:background="@mipmap/icon_order" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y24"
+                    android:text="我的订单"
+                    android:textColor="#ff1d1e2c"
+                    android:textSize="@dimen/x18" />
+            </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+            <com.qmuiteam.qmui.layout.QMUILinearLayout
+                android:id="@+id/qlyt_service"
+                android:layout_width="@dimen/y313"
+                android:layout_height="@dimen/y140"
+                android:layout_marginLeft="@dimen/x31"
+                android:layout_marginTop="@dimen/y45"
+                android:layout_marginRight="@dimen/x31"
+                android:background="#fff"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/qlyt_order">
+
+                <ImageView
+                    android:layout_width="@dimen/x65"
+                    android:layout_height="@dimen/y67"
+                    android:layout_marginTop="@dimen/y18"
+                    android:background="@mipmap/icon_kefu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y22"
+                    android:text="在线客服"
+                    android:textColor="#ff1d1e2c"
+                    android:textSize="@dimen/x18" />
+            </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.zonghong.repayment.view.MRefreshView>
 </layout>
