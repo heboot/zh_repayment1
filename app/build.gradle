@@ -23,7 +23,7 @@ android {
         release {
             keyAlias 'release'
             keyPassword '123456'
-            storeFile file('D:/workSpace/Loan/loan.jks')
+            storeFile file('../loan.jks')
             storePassword '123456'
         }
 

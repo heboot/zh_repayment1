@@ -4,6 +4,11 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.widget.Toast;
 
 import com.zonghong.repayment.MAPP;
@@ -30,6 +35,13 @@ public class ChannelActivity extends BaseActivity<ActivityChannelBinding> {
         binding.tvBank.setText((String) MAPP.mapp.getDataMap().get("bank_name"));
         binding.tvName.setText((String) MAPP.mapp.getDataMap().get("user_name"));
         binding.tvNum.setText((String) MAPP.mapp.getDataMap().get("bank_card"));
+
+
+
+        SpannableString spannableString = new SpannableString("打开微信>收付款>转账到银行卡备注姓名+ 手机号后四位，支付完成后请截图给下方在线客服，为您办理销账， 还款后有短信通知。");
+        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#FF0000")), 33,spannableString.length()-18, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        binding.tvTip.append(spannableString);
+
     }
 
     @Override

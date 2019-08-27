@@ -36,17 +36,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv_tip"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x18"
             android:layout_marginTop="@dimen/y125"
             android:layout_marginRight="@dimen/x13"
-            android:text="打开微信>收付款>转账到银行卡备注姓名+ 手机号后四位，支付完成后请截图给下方在线客服，为您办理销账， 还款后有短信通知。"
+
             android:textColor="#ffffffff"
             android:textSize="@dimen/x16"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <!--android:text="打开微信>收付款>转账到银行卡备注姓名+ 手机号后四位，支付完成后请截图给下方在线客服，为您办理销账， 还款后有短信通知。"-->
 
         <TextView
             android:id="@+id/tv_title1"
