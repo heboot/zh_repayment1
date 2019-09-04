@@ -9,7 +9,7 @@
         <View
             android:id="@+id/v_bg"
             android:layout_width="0dp"
-            android:layout_height="@dimen/y210"
+            android:layout_height="@dimen/y300"
             android:background="@drawable/bg_rect_sendcode"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x18"
-            android:layout_marginTop="@dimen/y91"
+            android:layout_marginTop="@dimen/y70"
             android:text="还款方式"
             android:textColor="#ffffffff"
             android:textSize="@dimen/x17"
@@ -40,7 +40,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x18"
-            android:layout_marginTop="@dimen/y125"
+            android:layout_marginTop="@dimen/y110"
             android:layout_marginRight="@dimen/x13"
 
             android:textColor="#ffffffff"
@@ -180,7 +180,7 @@
             android:id="@+id/qlyt_service"
             android:layout_width="@dimen/x310"
             android:layout_height="@dimen/y55"
-            android:layout_marginTop="@dimen/y190"
+            android:layout_marginTop="@dimen/y60"
             android:background="#fff"
             android:gravity="center"
             android:orientation="horizontal"
@@ -194,13 +194,12 @@
                 android:background="@mipmap/icon_service2"></View>
 
             <TextView
-                android:layout_marginLeft="@dimen/x10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
                 android:text="在线客服"
                 android:textColor="#ff1d1e2c"
-                android:textSize="@dimen/x18"
-                />
+                android:textSize="@dimen/x18" />
         </com.qmuiteam.qmui.layout.QMUILinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

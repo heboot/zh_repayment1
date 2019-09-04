@@ -37,9 +37,12 @@ public class ChannelActivity extends BaseActivity<ActivityChannelBinding> {
         binding.tvNum.setText((String) MAPP.mapp.getDataMap().get("bank_card"));
 
 
-
-        SpannableString spannableString = new SpannableString("打开微信>收付款>转账到银行卡备注姓名+ 手机号后四位，支付完成后请截图给下方在线客服，为您办理销账， 还款后有短信通知。");
-        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#FF0000")), 33,spannableString.length()-18, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        SpannableString spannableString = new SpannableString("方式1 网银转账到下方对公账户 备注名字+ 手机号后四位\n" +
+                "方式2 打开微信→收付款→转账到银行卡备注名字+ 手机号后四位\n" +
+                "方式3 打开支付宝转账到银行卡备注名字+ 手机号后四位\n" +
+                "以上三种方式 网银转账优先销账\n" +
+                "支付完成后 请截图给下方在线客服 为您办理销账业务。");
+        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#FF0000")), spannableString.length() - 20, spannableString.length() - 10, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.tvTip.append(spannableString);
 
     }
